@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+/* stack ops */
 #define STACK_SIZE 1024
 
 /**
@@ -32,3 +33,26 @@ id_name_t *Push(stk_t *stk, char *id, char *name);
 id_name_t *Pop(stk_t *stk);
 void Free(stk_t *stk);
 int test_stack(void);
+
+#define QUEUE_SIZE 1024
+
+/**
+ * queue_t - Holds info about a queue
+ * @front: top index of queue
+ * @rear: rear index of queue
+ * @head: head ptr of queue
+ */
+typedef struct queue
+{
+	int front;
+	int rear;
+	id_name_t **head;
+} queue_t;
+
+int q_is_empty(queue_t *queue);
+int q_is_full(queue_t *queue);
+id_name_t *Enqueue(queue_t *queue, char *id, char *name);
+id_name_t *Dequeue(queue_t *queue);
+id_name_t *Q_Peek(queue_t *queue);
+void Q_Free(queue_t *queue);
+int test_queue(void);
